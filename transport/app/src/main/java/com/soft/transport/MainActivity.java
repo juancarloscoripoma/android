@@ -1,4 +1,4 @@
-package soft.com.sale;
+package com.soft.transport;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     private Button button;
     TelephonyManager telephonyManager;
     String imei="177";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         });
         webView.loadUrl(webViewURL);
     }
+    
 
     @Override
     public void onBackPressed() {
@@ -81,23 +81,5 @@ public class MainActivity extends AppCompatActivity {
         } else {
             finish();
         }
-    }
-
-    @SuppressLint("MissingPermission")
-    public String getDeviceImei() {
-        telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
-        if(null != telephonyManager){
-            StringBuilder builder = new StringBuilder();
-            builder.append("Imei: ").
-                    append(telephonyManager.getDeviceId()).
-                    append("\n");
-
-            builder.append("Nombre Operador").
-                    append(telephonyManager.getNetworkOperatorName());
-
-            return builder.toString();
-        }
-        return "empty tabled";
-
     }
 }
